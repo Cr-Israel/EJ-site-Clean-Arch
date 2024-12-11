@@ -4,6 +4,12 @@ import { StudentsRepository } from "@/domain/student/application/repositories/st
 export class InMemoryStudentsRepository implements StudentsRepository {
   public items: Student[] = []
 
+  async findMany(): Promise<Student[]> {
+    const student = this.items
+
+    return student
+  }
+
   async findByEmail(email: string): Promise<Student | null> {
     const student = this.items.find((item) => item.email === email)
     if (!student) {
