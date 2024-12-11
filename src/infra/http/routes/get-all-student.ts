@@ -1,6 +1,6 @@
 import { FastifyInstance } from "fastify";
-import { GetAllStudentController } from "../controllers/GetAllStudentController";
+import { FetchStudentsController } from "../controllers/fetch-students.controller";
 
 export async function getAllStudent(app: FastifyInstance) {
-  app.get('/students', new GetAllStudentController().execute)
+  app.get('/students', new FetchStudentsController().handle)
 }

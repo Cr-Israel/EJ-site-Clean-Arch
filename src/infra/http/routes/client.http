@@ -11,7 +11,7 @@ Content-Type: application/json
   "lastname": "Doe",
   "course": "Computer Science",
   "github": "John-Doe",
-  "email": "johndoe4@teste.com",
+  "email": "johndoe@teste.com",
   "hardskills": ["Node", "Rust"],
   "softskills": ["Smart conversation", "Flexibal"],
   "projects": ["Web Site", "Web Scrapping"]
