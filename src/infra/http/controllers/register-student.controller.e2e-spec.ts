@@ -11,10 +11,13 @@ describe('Register Student (e2e)', () => {
   })
 
   afterAll(async () => {
+    await prisma.$disconnect();
     await app.close()
   })
 
   it('[POST] /create', async () => {
+    await prisma.student.deleteMany({});
+
     const response = await request(app.server)
       .post('/create')
       .send({
@@ -28,7 +31,6 @@ describe('Register Student (e2e)', () => {
         projects: ["Web Site", "Web Scrapping"]
       })
 
-      console.log("Response Status Code:", response.statusCode);
       expect(response.statusCode).toEqual(201)
 
       const studentOnDatabase = await prisma.student.findUnique({
@@ -36,8 +38,6 @@ describe('Register Student (e2e)', () => {
           email: 'johndoe@teste.com'
         }
       })
-
-      console.log("Student on database:", studentOnDatabase);
 
       expect(studentOnDatabase).toBeTruthy()
   })

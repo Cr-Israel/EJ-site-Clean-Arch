@@ -10,21 +10,25 @@ const prisma = getPrismaClient()
 
 export class PrismaStudentsRepository implements StudentsRepository {
   async findByEmail(email: string): Promise<Student | null> {
-    console.log('E-mail', email)
     const student = await prisma.student.findUnique({
       where: {
         email
       }
     })
-
-    console.log('Student here', student)
-
+    
     if (!student) {
       return null
     }
-
+    
     return PrismaStudentMapper.toDomain(student)
   }
+
+  async findMany(): Promise<Student[]> {
+    const students = await prisma.student.findMany()
+
+    return students.map(PrismaStudentMapper.toDomain)
+  }
+
   async create(student: Student): Promise<void> {
     const data = PrismaStudentMapper.toPrisma(student)
 

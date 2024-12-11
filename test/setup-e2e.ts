@@ -26,16 +26,13 @@ const schemaId = randomUUID()
 
 beforeAll(async () => {
   const databaseURL = generateUniqueDatabaseURL(schemaId)
-  console.log("Using schema ID:", schemaId);
-
+  
   process.env.DATABASE_URL = databaseURL
 
   await resetPrismaClient();
   await prisma.$connect()
   
   execSync('yarn prisma migrate deploy')
-
-  console.log('Prisma connected successfully.');
 })
 
 afterAll(async () => {

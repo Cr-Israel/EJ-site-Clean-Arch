@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Get Student
-GET {{url}}/get-student/a666a74e-7839-4c8e-8328-f5092786c0eb HTTP/1.1
+GET {{url}}/students/johndoe4@teste.com HTTP/1.1
 
 ### Get All Student
-GET {{url}}/get-all HTTP/1.1
+GET {{url}}/students HTTP/1.1

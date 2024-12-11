@@ -4,6 +4,11 @@ import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 import { Student, StudentProps } from "@/domain/student/enterprise/entities/student";
 
+import { getPrismaClient } from '@/infra/database/prisma-config';
+import { PrismaStudentMapper } from '@/infra/database/mappers/prisma-student-mapper';
+
+const prismaService = getPrismaClient()
+
 export function makeStudent(
   override: Partial<StudentProps> = {},
   id?: UniqueEntityID
@@ -24,4 +29,17 @@ export function makeStudent(
   )
 
   return student
+}
+
+export class StudentFactory {
+  constructor(private prisma: typeof prismaService) {}
+  async makePrismaStudent(data: Partial<StudentProps> = {}): Promise<Student> {
+    const student = makeStudent(data)
+
+    await this.prisma.student.create({
+      data: PrismaStudentMapper.toPrisma(student)
+    })
+
+    return student
+  }
 }
