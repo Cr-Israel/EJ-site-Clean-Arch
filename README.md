@@ -4,6 +4,8 @@
 O objetivo desta API é servir as requisições do Front-End, com as ações necessárias.
 O Front-End desta aplicação é um site de uma empresa junior.
 
+A aplicação Back-End foi feita seguindo a Clean Architecture e DDD.
+
 ## Stack utilizada
 
 **Back-end:** TypeScript, Fastify, Zod, Prisma, PostgreSQL e Docker.
@@ -48,7 +50,7 @@ O Front-End desta aplicação é um site de uma empresa junior.
 
 ## Aprendizados
 
-Foi a primeira aplicação que utilizei o Prisma e o Zod. O Prisma é simplesmente incrível! A integração que ele tem o TypeScript é supreedente.
+Foi a primeira aplicação que utilizei o Prisma e o Zod. O Prisma é simplesmente incrível! A integração que ele tem o TypeScript é surpreendente.
 
 Com o Zod, foi a mesma coisa, a integração dele com o TypeScript é incrível! A forma como ele interage torna mais fácil o desenvolvimento.
 Podemos criar um schema do corpo da requisição, dizendo como queremos que os dados sejam recebidos.
