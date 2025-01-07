@@ -27,6 +27,8 @@ describe('Register Student Use Case', () => {
       projects: ['any_project']
     })
 
+    console.log(result.value)
+
     expect(result.isRight()).toBe(true)
     expect(result.value).toEqual({
       student: inMemoryStudentsRepository.items[0]

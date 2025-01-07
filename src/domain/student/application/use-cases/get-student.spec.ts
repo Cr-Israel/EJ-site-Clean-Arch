@@ -4,7 +4,6 @@ import { InMemoryStudentsRepository } from "test/repositories/in-memory-students
 import { makeStudent } from "test/factories/make-student"
 
 import { StudentNotFoundError } from "./errors/student-not-found-error"
-import { Student } from "../../enterprise/entities/student"
 
 let inMemoryStudentsRepository: InMemoryStudentsRepository
 

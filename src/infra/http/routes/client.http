@@ -20,5 +20,5 @@ Content-Type: application/json
 ### Get Student
 GET {{url}}/students/johndoe4@teste.com HTTP/1.1
 
-### Get All Student
+### Get All Students
 GET {{url}}/students HTTP/1.1

@@ -1,20 +1,20 @@
 import { z } from "zod";
 import { FastifyReply, FastifyRequest } from "fastify";
 
+import { registerStudentSchema } from "../routes/create-student";
 import { StudentAlreadyExistsError } from "@/domain/student/application/use-cases/errors/student-already-exists-error";
 import { makeRegisterStudentUseCase } from "@/domain/student/application/use-cases/factories/make-register-student-use-case";
-import { StudentPresenter } from "../presenters/student-presenter";
 
-const registerStudentSchema = z.object({
-  name: z.string(),
-  lastname: z.string(),
-  course: z.string(),
-  github: z.string(),
-  email: z.string().email(),
-  hardskills: z.array(z.string()),
-  softskills: z.array(z.string()),
-  projects: z.array(z.string())
-})
+// export const registerStudentSchema = z.object({
+//   name: z.string(),
+//   lastname: z.string(),
+//   course: z.string(),
+//   github: z.string(),
+//   email: z.string().email(),
+//   hardskills: z.array(z.string()),
+//   softskills: z.array(z.string()),
+//   projects: z.array(z.string())
+// })
 
 export class RegisterStudentController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
@@ -35,10 +35,6 @@ export class RegisterStudentController {
       }
     }
 
-    const student = result.value.student
-
-    reply.status(201).send({
-      result: student
-    })
+    reply.status(201).send()
   }
 }
